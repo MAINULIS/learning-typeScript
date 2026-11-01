@@ -19,3 +19,13 @@ const addTwo = (a: number, b: number) => {
   return a + b;
 };
 console.log(addTwo(333, 43));
+
+// Array and Tuple readonly modifier 
+
+// const arr: Array<string> = ["programming","hero"];
+const arr: string[] = ["programming","hero"];
+const numArr: number[] = [3, 3, 5];
+
+// tuple is a fixed-length array where each element can have a different type.
+const rajLatLong: readonly [number, number] = [24.374, 88.6011];
+// rajLatLong.push(34) // we cannot push new elements to a readonly tuple.
