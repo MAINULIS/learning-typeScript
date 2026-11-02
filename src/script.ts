@@ -63,3 +63,56 @@ const logUserInfo = (...args: [name: string, age: number, isActive: boolean]) =>
 }
 
 logUserInfo("Mainul", 25, true); 
+
+
+// Object type, type alias and interface in TypeScript
+
+// const user: {
+// name: string;
+// age: number;
+// isActive: boolean;
+// action: () => void;
+// badges: string[];
+// } = {
+// name: "Mainul",
+// age: 25,
+// isActive: true,
+// action: () => console.log("User is active"),
+// badges: ["Beginner", "Intermediate"]
+// };
+
+// type alias
+type address = {
+  streetName: string;
+  holdingNumber: number;
+}
+
+type TUser = {
+name: string;
+age: number;
+isActive: boolean;
+action: () => void;
+badges: string[];
+address: address;
+}
+
+// interface most of the time we use interface instead of type alias because interface can be extended and merged.
+interface IUser {
+name: string;
+age: number;
+isActive: boolean;
+action: () => void;
+badges: string[];
+}
+
+const user:TUser = {
+name: "Mainul",
+age: 25,
+isActive: true,
+action: () => console.log("User is active"),
+badges: ["Beginner", "Intermediate"],
+address: {
+  holdingNumber: 123,
+  streetName: "Main Street"
+}
+};
