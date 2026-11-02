@@ -29,3 +29,37 @@ const numArr: number[] = [3, 3, 5];
 // tuple is a fixed-length array where each element can have a different type.
 const rajLatLong: readonly [number, number] = [24.374, 88.6011];
 // rajLatLong.push(34) // we cannot push new elements to a readonly tuple.
+
+// Optional(?), default and rest parameters(...args) in TypeScript
+// 1. Optional(?)
+const concatName =(firstName:string, lastName?:string) => {
+  if(!lastName){
+    return firstName;
+  }
+  return firstName + " " + lastName;
+};
+
+console.log(concatName("Mainul"));
+
+// 2. Default
+const greetings = (fullName:string, greeting = "Hello")=> {
+  console.log(`${greeting} ${fullName}`)
+}
+
+greetings("Mainul");
+
+// 3. Rest parameters(...args)
+// reduce
+
+const sumAll = (...numbers:number[]) => {
+ return numbers.reduce((acc, current) => acc + current, 0);
+}
+
+console.log(sumAll(1, 2, 3, 4, 5)); // returns 15
+
+const logUserInfo = (...args: [name: string, age: number, isActive: boolean]) => {
+  const [name, age, isActive] = args;
+  console.log(`Name: ${name}, Age: ${age}, Is Active: ${isActive}`);
+}
+
+logUserInfo("Mainul", 25, true); 
