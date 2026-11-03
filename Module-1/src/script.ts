@@ -49,7 +49,7 @@ const greetings = (fullName:string, greeting = "Hello")=> {
 greetings("Mainul");
 
 // 3. Rest parameters(...args)
-// reduce
+// reduce 
 
 const sumAll = (...numbers:number[]) => {
  return numbers.reduce((acc, current) => acc + current, 0);
@@ -96,7 +96,7 @@ badges: string[];
 address: address;
 }
 
-// interface most of the time we use interface instead of type alias because interface can be extended and merged.
+// interface: most of the time we use interface instead of type alias because interface can be extended and merged.
 interface IUser {
 name: string;
 age: number;
