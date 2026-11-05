@@ -9,3 +9,4 @@
 // import "./m2-type-assertion.js";
 // import "./m2-narrowing.js"
 import "./m2-generic.js"
+import "./m2-promise.js"
