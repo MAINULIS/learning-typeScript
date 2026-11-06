@@ -35,3 +35,25 @@ const userData = await fetchUser();
 if (userData) {
     console.log(userData.name);
 }
+
+// * The instanceof operator in TypeScript is a runtime operator adopted from JavaScript that checks if an object's prototype chain contains the prototype property of a specific class or constructor function.
+class Dog {
+  bark() { return "Woof!"; }
+}
+
+class Cat {
+  meow() { return "Meow!"; }
+}
+
+function makeAnimalSound(animal: Dog | Cat) {
+  if (animal instanceof Dog) {
+    // TypeScript automatically narrows 'animal' to the Dog class here
+    return animal.bark(); 
+  } else {
+    // TypeScript knows it must be a Cat here
+    return animal.meow();
+  }
+}
+
+// const dogSound = makeAnimalSound(new Dog());
+// console.log(dogSound);
