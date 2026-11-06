@@ -30,5 +30,5 @@ this.baseSalary = baseSalary
 const employee = new Employee("mainul", 33033);
 const employee2 = new Employee("Musta", 28653);
 
-console.log(employee, employee2);
-console.log(employee instanceof Employee);
+// console.log(employee, employee2);
+// console.log(employee instanceof Employee);
