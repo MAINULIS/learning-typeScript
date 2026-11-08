@@ -14,7 +14,7 @@ class Input extends UIElement {
     }
 
     render() {
-        return `<input id=${this.id} type=${this.type} placeholder=${this.placeholder} />`
+        return `<input id="${this.id}" type="${this.type}" placeholder="${this.placeholder}" />`
     }
 
 }
@@ -28,15 +28,39 @@ class Input extends UIElement {
         }
 
         render () {
-            return `<button id=${this.id}>${this.label}</button>`
+            return `<button id="${this.id}">${this.label}</button>`
+        }
+    }
+
+
+    class Form extends UIElement {
+        private children: UIElement[] = [];
+
+        appendChild(child: UIElement) {
+            this.children.push(child);
+        }
+        render() {
+            const childHTML = this.children.map((child) => child.render()).join("\n ");
+
+            // console.log(childHTML);
+
+            return `<form id="${this.id}" style="border: 1px solid #b3a5a5; padding:20px; display: flex; flex-direction: column; max-width: 300px; border-radius:10px; gap:5px">\n ${childHTML} \n</form>`
         }
     }
 
 const emailInput = new Input("email", "email", "Enter Your Active Email")
-const passInput = new Input("email", "email", "Enter Your Active Email")
+const passInput = new Input("password", "password", "Enter Your Password")
+const submitBtn = new Button ("submit-btn", "Submit")
+const formElement = new Form("Login-form")
 
-const submitBtn = new Button ("submit-btn", "submit")
+formElement.appendChild(emailInput)
+formElement.appendChild(passInput)
+formElement.appendChild(submitBtn)
 
-console.log(emailInput);
-console.log(passInput.render());
-console.log(submitBtn);
+console.log(formElement.render());
+
+const rootElement = document.getElementById("root");
+
+if(rootElement) {
+    rootElement.innerHTML = formElement.render();
+}
